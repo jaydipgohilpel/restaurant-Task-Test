@@ -1,0 +1,62 @@
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-12">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+          <button (click)="back()" class="btn btn-primary btn-block fa-lg gradient-custom-2 m-2">  Back</button>
+          <div class="card-body ">
+
+            <div class="text-center">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                style="width: 185px;" alt="logo">
+              <h4 class="mt-1 mb-1 pb-1">Your Order </h4>
+            </div>
+
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="
+            width: 100%;
+        ">
+
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Resturant Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="Foodtype">
+                <th mat-header-cell *matHeaderCellDef> Food Types </th>
+                <td mat-cell *matCellDef="let element"> {{element.Foodtype}} </td>
+              </ng-container>
+              <!-- Name Column -->
+              <ng-container matColumnDef="Food">
+                <th mat-header-cell *matHeaderCellDef> Food Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.Food}} </td>
+              </ng-container>
+              <!-- Name Column -->
+              <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef>Price </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+              </ng-container>
+
+
+
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex align-items-center gradient-custom-2" style="height:fit-content">
+
+
+          <img src="../../../../assets/images/1.webp" style="width: 100%; height: 765px;"
+            alt="logo">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

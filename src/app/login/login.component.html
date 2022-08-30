@@ -1,0 +1,79 @@
+<!-- <section class="h-700 gradient-form" style="background-color: #eee;"> -->
+<div class="container h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-xl-10">
+      <div class="card rounded-3 text-black">
+        <div class="row g-0">
+          <div class="col-lg-6">
+            <div class="card-body p-md-5 mx-md-4">
+
+              <div class="text-center">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                  style="width: 185px;" alt="logo">
+                <h4 class="mt-1 mb-5 pb-1">Login</h4>
+              </div>
+
+              <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                <p>Please login to your account</p>
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form2Example11" >Select your Role </label>
+                  <select id="role" name="role" ngModel class="form-control">
+                    <option value="admin" selected>Admin</option>
+                    <option value="customer">Customer</option>
+
+                  </select>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form2Example11">Email</label>
+                  <input type="email" id="form2Example11" class="form-control" placeholder="Enter email address" email
+                    name="email" ngModel required #email="ngModel" />
+
+                  <span *ngIf="email.invalid && email.touched || email.invalid && loginForm.submitted
+                    " class="error">Email can not Empty or invalid</span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form2Example22">Password</label>
+                  <input type="password" id="form2Example22" class="form-control" placeholder="Enter Password"
+                    name="password" ngModel minlength="6" maxlength="8" #password="ngModel" required />
+                  <div *ngIf="password.invalid && password.touched
+                    || password.invalid && loginForm.submitted" class="error">Password can not Empty</div>
+                  <span
+                    *ngIf="password.invalid && password.touched && password.errors?.['minlength'] || password.errors?.['maxlength']
+                    || password.invalid && loginForm.submitted && password.errors?.['minlength'] || password.errors?.['maxlength']"
+                    class="error">password must be 6 to 8 character</span>
+
+                </div>
+
+                <div class="text-center pt-1 mb-5 pb-1">
+
+                    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" >Login</button>
+
+                </div>
+
+                <div class="d-flex align-items-center justify-content-center pb-4">
+
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+
+
+            <img src="../../assets/images/photo-1548940740-204726a19be3.avif" style="width: 100%; height: 765px;"
+              alt="logo">
+            <!-- <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+
+
+                <p class="small mb-0">This restaurant is a pure vegetarian restaurant. It is well-known for the Punjabi, Chinese,south Indian,  When you look at the menu of the restaurant, it stimulates your taste buds.</p> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </section> -->
