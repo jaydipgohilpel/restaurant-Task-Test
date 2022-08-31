@@ -7,21 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-your-order.component.scss']
 })
 export class ViewYourOrderComponent implements OnInit {
-
   foodName: any = [];
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  displayedColumns: string[] = [ 'name','Foodtype','Food','price'];
+  displayedColumns: string[] = ['name', 'Foodtype', 'Food', 'price'];
   dataSource = JSON.parse(localStorage.getItem("orders") || "[]")
 
-
-  back()
-  {
+  back() {
     this.router.navigate(['/customer'])
   }
-
-
 }

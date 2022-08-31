@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialExampleModule} from './../material.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import {MatSelectModule} from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatStepperModule,
     MaterialExampleModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

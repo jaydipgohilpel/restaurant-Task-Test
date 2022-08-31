@@ -14,10 +14,9 @@ export class OrderListComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  displayedColumns: string[] = [ 'name','customerName','Foodtype','Food','price'];
+  displayedColumns: string[] = ['name', 'customerName', 'Foodtype', 'Food', 'price'];
   dataSource = JSON.parse(localStorage.getItem("orders") || "[]")
-back()
-{
-  this.router.navigate(['admindashboard']);
-}
+  back() {
+    this.router.navigate(['admindashboard']);
+  }
 }

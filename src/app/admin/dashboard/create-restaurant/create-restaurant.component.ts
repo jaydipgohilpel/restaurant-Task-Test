@@ -14,7 +14,7 @@ export class CreateRestaurantComponent implements OnInit {
   }
   onChange(Foodtype: any) {
     if (Foodtype.value == 'Gujarati') {
-      this.foodName = ['Fafda, Khakhra','Ganthiya','Gujarati Dal','Undhiyu','Thepla','Rotlo'];
+      this.foodName = ['Fafda, Khakhra', 'Ganthiya', 'Gujarati Dal', 'Undhiyu', 'Thepla', 'Rotlo'];
     }
     else if (Foodtype.value == 'punjabi') {
       this.foodName = ['Paneer Tikka', 'Punjabi Pakoda Kadhi', 'Rajma Chawal'];
@@ -28,19 +28,14 @@ export class CreateRestaurantComponent implements OnInit {
   }
   onSubmit(formdata: any) {
     if (formdata.valid) {
-
-
-      console.log(formdata.value);
-
+      // console.log(formdata.value);
       let data = [];
       data = JSON.parse(localStorage.getItem("restoran") || "[]");
-      formdata.value.id=data.length+1;
+      formdata.value.id = data.length + 1;
       data.push(formdata.value);
       localStorage.setItem("restoran", JSON.stringify(data));
       alert("Restaurant Created")
       formdata.reset()
     }
   }
-
-
 }

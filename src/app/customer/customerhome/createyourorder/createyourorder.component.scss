@@ -20,6 +20,7 @@
     height: 100vh !important;
   }
 }
+
 @media (min-width: 769px) {
   .gradient-custom-2 {
     border-top-right-radius: .3rem;
@@ -31,12 +32,13 @@
     font-size: 12px;
     margin-left: 5px;
   }
+
   table {
     width: 100%;
   }
 
 }
-select{
+
+select {
   padding: 5px;
 }
-

@@ -7,23 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./customerhome.component.scss']
 })
 export class CustomerhomeComponent implements OnInit {
-  data:any;
+  data: any;
   constructor(private router: Router) { }
-
   ngOnInit(): void {
 
   }
-
-  createRestaurant()
-  {
+  createRestaurant() {
     this.router.navigate(['/Create-order']);
   }
-  viewOrder()
-  {
+  viewOrder() {
     this.router.navigate(['/View-Your-List']);
   }
-  logout()
-  {
+  logout() {
     this.router.navigate(['/']);
   }
 }

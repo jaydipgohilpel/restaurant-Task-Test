@@ -1,35 +1,17 @@
-<div class="container">
-  <div class="body d-md-flex align-items-center justify-content-between">
-    <div class="box-1 mt-md-0 mt-5">
-      <img src="../../../assets/images/photo-1548940740-204726a19be3.avif " class="" alt="">
-    </div>
-    <div class=" box-2 d-flex flex-column h-100">
-      <div class="mt-5">
-        <p class="mb-1 h-1">Customer Dashboard</p>
-        <!-- <p class="text-muted mb-2">Share your thouhts with the world form today.</p> -->
-        <div class="d-flex flex-column ">
-
-          <div class="d-flex align-items-center">
-            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" (click)="createRestaurant()"><a routerLink="/Create-restaurant" routerLinkActive="active" class="box me-2 selectio ">
-                <span class="fab fa-facebook-f mb-2"></span>
-               <h4 class="mb-0">Create order</h4>
-              </a></button>
-              <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" (click)="viewOrder()"><a routerLink="/Create-restaurant" routerLinkActive="active" class="box me-2 selectio ">
-                <span class="fab fa-facebook-f mb-2"></span>
-                <p class="mb-0">View order list</p>
-              </a></button>
-              <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" (click)="logout()"><a routerLink="/Create-restaurant" routerLinkActive="active" class="box me-2 selectio ">
-                <span class="fab fa-facebook-f mb-2"></span>
-                <p class="mb-0" >Logout</p>
-              </a></button>
-
-
-          </div>
-
-        </div>
+<div class="body d-md-flex align-items-center justify-content-between">
+  <div class="box-1 mt-md-0 mt-5">
+    <img src="../../../assets/images/photo-1548940740-204726a19be3.avif " class="" alt="">
+  </div>
+  <div class=" box-2 d-flex flex-column h-100">
+    <p class="mb-1 h-1 m-3">Customer Dashboard</p>
+    <div class="d-flex flex-column m-3 ">
+      <div class="d-flex align-items-center">
+        <div class="container m-1"> <button mat-flat-button color="primary" (click)="createRestaurant()">Create
+            order</button></div>
+        <div class="container m-1"> <button mat-flat-button color="primary" (click)="viewOrder()">View order
+            list</button></div>
+        <div class="container m-1"> <button mat-flat-button color="primary" (click)="logout()">Logout</button></div>
       </div>
-
     </div>
-    <!-- <span class="fas fa-times"></span> -->
   </div>
 </div>

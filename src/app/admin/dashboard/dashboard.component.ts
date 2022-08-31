@@ -7,23 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-data:any;
+  data: any;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
-  createRestaurant()
-  {
+  createRestaurant() {
     this.router.navigate(['/Create-restaurant']);
   }
-  viewOrder()
-  {
+  viewOrder() {
     this.router.navigate(['/View-order-list']);
   }
-  logout()
-  {
+  logout() {
     this.router.navigate(['/']);
   }
 }

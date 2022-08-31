@@ -3,6 +3,13 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 
+type FoodType = {
+  Food: string;
+  Foodtype: string;
+  id: number;
+  name: string;
+  price: number;
+}
 
 @Component({
   selector: 'app-createyourorder',
@@ -11,19 +18,17 @@ import { Router } from '@angular/router';
 })
 export class CreateyourorderComponent implements OnInit {
   displayedColumns: string[] = ['name', 'Foodtype', 'Food', 'price', 'makeorder'];
-  dataSource: MatTableDataSource<type>;
-
+  dataSource: MatTableDataSource<FoodType>;
   foodName: any = [];
   filterSelectObj: any = [];
   filterValues: any = {};
   restoruntName: any;
   allOreder: any;
+  public modeselect = 'asc';
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
 
   constructor(private router: Router) {
-
     this.allOreder = JSON.parse(localStorage.getItem("restoran") || "[]")
-    // this.dataSource = allOreder;
     this.dataSource = new MatTableDataSource(this.allOreder);
   }
 
@@ -38,19 +43,11 @@ export class CreateyourorderComponent implements OnInit {
 
     ];
 
-    // const obj = {
-    //   "Food": "Ganthiya",
-    //   "Foodtype": "Gujarati",
-    //   "id": 0,
-    //   "name": "all",
-    //   "price": 200
-    // }
     this.restoruntName = this.allOreder;
-    // this.restoruntName.unshift(obj)
-
   }
-  ngAfterViewInit() {
+  async ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    setTimeout(() => this.sortingOrderChange('asc'), 0)
   }
 
   placeOrder(orderData: any) {
@@ -66,23 +63,32 @@ export class CreateyourorderComponent implements OnInit {
   back() {
     this.router.navigate(['/customer'])
   }
+
   filterChange(filter: any, event: any) {
-    const filterValue = (event.target as HTMLInputElement).value;
+    const filterValue = event;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  sortData(event:any)
-  {
 
+  async sortingOrderChange(priceRange: any) {
+    this.dataSource.sort = this.sort;
+    if (priceRange == "asc") {
+      let sortState: Sort = { active: 'price', direction: 'asc' };
+      this.dataSource.sort.active = sortState.active;
+      this.dataSource.sort.direction = sortState.direction;
+      this.dataSource.sort.sortChange.emit(sortState);
+    }
+    else if (priceRange == "desc") {
+      let sortState: Sort = { active: 'price', direction: 'desc' };
+      this.dataSource.sort.active = sortState.active;
+      this.dataSource.sort.direction = sortState.direction;
+      this.dataSource.sort.sortChange.emit(sortState);
+    }
+    else {
+      this.dataSource = new MatTableDataSource(this.allOreder);
+    }
   }
-
-
 }
-export class type {
 
-  Food!: string;
-  Foodtype!: string;
-  id!: number;
-  name!: string;
-  price!: number;
-}
+
+
 

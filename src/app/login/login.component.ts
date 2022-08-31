@@ -18,21 +18,12 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(formdata: any) {
     if (formdata.valid) {
-      if (formdata.value.role === 'admin') {
+      if (formdata.value.email === 'admin@gmail.com') {
         this.router.navigate(['admindashboard']);
       }
       else {
         this.router.navigate(['/customer']);
       }
-
-
-
-      // let user_data_arr = [];
-      // user_data_arr = JSON.parse(localStorage.getItem("user") || "");
-      // user_data_arr.push(formdata.value);
-      // localStorage.setItem("user", JSON.stringify(user_data_arr));
-
-
     }
   }
 }
