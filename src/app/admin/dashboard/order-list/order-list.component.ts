@@ -12,11 +12,8 @@ export class OrderListComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
   }
   displayedColumns: string[] = ['name', 'customerName', 'Foodtype', 'Food', 'price'];
   dataSource = JSON.parse(localStorage.getItem("orders") || "[]")
-  back() {
-    this.router.navigate(['admindashboard']);
-  }
+  back = () => this.router.navigate(['admin-dashboard']);
 }

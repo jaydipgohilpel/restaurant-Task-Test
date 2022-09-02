@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,13 +17,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(formdata: any) {
-    if (formdata.valid) {
-      if (formdata.value.email === 'admin@gmail.com') {
-        this.router.navigate(['admindashboard']);
+    let data = [];
+    data = JSON.parse(localStorage.getItem("user") || "[]");
+    let flag = true;
+    data.forEach((e: any) => {
+      if (formdata.value.email === e.email && formdata.value.password === e.password) {
+        flag = false;
+        const pageUrl = e.role === "admin" ? ['admin-dashboard'] : ['customer'];
+        this.router.navigate(pageUrl);
       }
-      else {
-        this.router.navigate(['/customer']);
-      }
-    }
+    });
+    if (flag) { alert("Invalid Username and Password") }
   }
 }

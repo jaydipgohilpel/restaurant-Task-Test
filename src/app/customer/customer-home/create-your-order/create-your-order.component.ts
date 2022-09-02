@@ -13,8 +13,8 @@ type FoodType = {
 
 @Component({
   selector: 'app-createyourorder',
-  templateUrl: './createyourorder.component.html',
-  styleUrls: ['./createyourorder.component.scss']
+  templateUrl: './create-your-order.component.html',
+  styleUrls: ['./create-your-order.component.scss']
 })
 export class CreateyourorderComponent implements OnInit {
   displayedColumns: string[] = ['name', 'Foodtype', 'Food', 'price', 'makeorder'];
@@ -32,7 +32,6 @@ export class CreateyourorderComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.allOreder);
   }
 
-
   ngOnInit(): void {
     this.filterSelectObj = [
       {
@@ -40,7 +39,6 @@ export class CreateyourorderComponent implements OnInit {
         columnProp: 'name',
         options: []
       },
-
     ];
 
     this.restoruntName = this.allOreder;
@@ -51,7 +49,6 @@ export class CreateyourorderComponent implements OnInit {
   }
 
   placeOrder(orderData: any) {
-
     let data = [];
     data = JSON.parse(localStorage.getItem("orders") || "[]");
     orderData.id = data.length + 1;
@@ -60,11 +57,10 @@ export class CreateyourorderComponent implements OnInit {
     alert("Your Order is Created")
   }
 
-  back() {
-    this.router.navigate(['/customer'])
-  }
+  back = () => this.router.navigate(['/customer']);
 
   filterChange(filter: any, event: any) {
+    console.log(filter);
     const filterValue = event;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }

@@ -16,7 +16,5 @@ export class ViewYourOrderComponent implements OnInit {
   displayedColumns: string[] = ['name', 'Foodtype', 'Food', 'price'];
   dataSource = JSON.parse(localStorage.getItem("orders") || "[]")
 
-  back() {
-    this.router.navigate(['/customer'])
-  }
+  back = () => this.router.navigate(['/customer']);
 }
