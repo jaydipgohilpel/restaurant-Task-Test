@@ -66,22 +66,16 @@ export class CreateyourorderComponent implements OnInit {
   }
 
   async sortingOrderChange(priceRange: any) {
+    if (priceRange == "asc") { this.sortingOrder('asc') }
+    else if (priceRange == "desc") { this.sortingOrder('desc') }
+    else { this.dataSource = new MatTableDataSource(this.allOreder); }
+  }
+  sortingOrder(order: any) {
     this.dataSource.sort = this.sort;
-    if (priceRange == "asc") {
-      let sortState: Sort = { active: 'price', direction: 'asc' };
-      this.dataSource.sort.active = sortState.active;
-      this.dataSource.sort.direction = sortState.direction;
-      this.dataSource.sort.sortChange.emit(sortState);
-    }
-    else if (priceRange == "desc") {
-      let sortState: Sort = { active: 'price', direction: 'desc' };
-      this.dataSource.sort.active = sortState.active;
-      this.dataSource.sort.direction = sortState.direction;
-      this.dataSource.sort.sortChange.emit(sortState);
-    }
-    else {
-      this.dataSource = new MatTableDataSource(this.allOreder);
-    }
+    let sortState: Sort = { active: 'price', direction: order };
+    this.dataSource.sort.active = sortState.active;
+    this.dataSource.sort.direction = sortState.direction;
+    this.dataSource.sort.sortChange.emit(sortState);
   }
 }
 
